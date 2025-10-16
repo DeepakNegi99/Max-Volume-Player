@@ -8,7 +8,7 @@ A beautiful, feature-rich music player web application with a stunning mountain-
 
 ## 🚀 Live Demo
 
-🌐 **[View Live Application](https://your-netlify-app-name.netlify.app)**
+🌐 **[View Live Application](https://max-volume-player.netlify.app/)**
 
 ## ✨ Features
 
