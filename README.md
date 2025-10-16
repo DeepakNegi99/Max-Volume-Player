@@ -255,8 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Need help? Have questions? Reach out:
 
-- 📧 **Email:** contact@maxvolumeplayer.com
-- 📱 **Phone:** +1 (555) 123-4567
+- 📧 **Email:** deepak99negi@gmail.com
 - 🌐 **Website:** www.maxvolumeplayer.com
 - 📍 **Address:** 123 Mountain View, Music Valley, MV 12345
 
