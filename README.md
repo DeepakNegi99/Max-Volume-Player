@@ -10,16 +10,6 @@ A beautiful, feature-rich music player web application with a stunning mountain-
 
 🌐 **[View Live Application](https://your-netlify-app-name.netlify.app)**
 
-*Replace with your actual Netlify deployment URL*
-
-## 📸 Screenshots
-
-### 🏔️ Main Player Interface
-![Main Interface](https://via.placeholder.com/800x400/1a1a2e/FFD700?text=Max+Volume+Player+Main+Interface)
-
-### 🎧 Song Collection
-![Song Collection](https://via.placeholder.com/800x400/1a1a2e/FFD700?text=Song+Collection+with+Filters)
-
 ## ✨ Features
 
 ### 🎶 **Core Music Functionality**
