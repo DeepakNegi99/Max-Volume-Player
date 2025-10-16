@@ -1,93 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MAX VOLUME PLAYER</title>
-        <link rel="stylesheet" href="style.css">
-        </head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAX VOLUME PLAYER</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li class="brand"><img src="logo2.png" alt="Spotify"> MAX VOLUME PLAYER</li>
-            <li>Home</li>
-            <li>About</li>
-        </ul>
+      <ul>
+        <li class="brand">
+           MAX VOLUME PLAYER
+        </li>
+        <li onClick="goToHome()">Home</li>
+        <li onClick="goToAbout()">About</li>
+      </ul>
     </nav>
 
-    <div class="container">
-        <div class="songList">
-            <h1>Free Music - No Copyright Sounds</h1>
-            <div class="songItemContainer">
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-            </div>
+    <!-- Top Half - Current Playing Section -->
+    <div class="top-section">
+      <div class="current-playing">
+        <img
+          id="currentSongImage"
+          src="covers/1.jpg"
+          alt="Current Song"
+          class="current-song-image"
+        />
+        <div class="current-song-info">
+          <h2 id="currentSongTitle">Warriyo - Mortals [NCS Release]</h2>
+          <p id="currentSongArtist">Warriyo</p>
         </div>
-        <div class="songBanner"></div>
+      </div>
+
+      <!-- Controls -->
+      <div class="bottom">
+        <div class="controls-container">
+          <div class="progress-controls">
+            <div class="icons">
+              <i class="fas fa-2x fa-step-backward" id="previous"></i>
+              <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+              <i class="fas fa-2x fa-step-forward" id="next"></i>
+            </div>
+            <input
+              type="range"
+              name="range"
+              id="myProgressBar"
+              min="0"
+              value="0"
+              max="100"
+            />
+          </div>
+          <div class="songInfo">
+            <img src="playing.gif" width="50px" alt="" id="gif" />
+            <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+          </div>
+          <div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
-        <div class="icons">
-            <!-- fontawesome icons -->
-            <i class="fas fa-3x fa-step-backward" id="previous"></i>
-            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
-            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+    <!-- Bottom Half - Song List Section -->
+    <div class="bottom-section">
+      <!-- Filters -->
+      <div class="filters">
+        <div class="filter-group">
+          <label for="artistFilter">Artist:</label>
+          <select id="artistFilter" onchange="applyFilters()">
+            <option value="all">All Artists</option>
+            <option value="Warriyo">Warriyo</option>
+            <option value="Cielo">Cielo</option>
+            <option value="DEAF KEV">DEAF KEV</option>
+            <option value="Different Heaven & EH!DE">
+              Different Heaven & EH!DE
+            </option>
+            <option value="Janji">Janji</option>
+            <option value="Salam-e-Ishq">Salam-e-Ishq</option>
+          </select>
         </div>
-        <div class="songInfo">
-            <img src="playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+        <div class="filter-group">
+          <label for="genreFilter">Genre:</label>
+          <select id="genreFilter" onchange="applyFilters()">
+            <option value="all">All Genres</option>
+            <option value="Electronic">Electronic</option>
+            <option value="House">House</option>
+            <option value="Romance">Romance</option>
+          </select>
         </div>
+        <div class="filter-group">
+          <label for="yearFilter">Year:</label>
+          <select id="yearFilter" onchange="applyFilters()">
+            <option value="all">All Years</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="song-list-container">
+        <h1 class="song-list-title">🎵 Music Collection 🎵</h1>
+        <div class="songs-grid">
+          <div class="songItem">
+            <img alt="Song 1" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="0" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 2" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="1" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 3" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="2" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 4" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="3" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 5" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="4" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 6" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="5" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 7" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="6" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 8" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="7" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 9" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="8" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+          <div class="songItem">
+            <img alt="Song 10" />
+            <div class="song-details">
+              <span class="songName">Song Name</span>
+              <span class="artist">Artist Name</span>
+              <span class="genre">Genre</span>
+              <span class="year">Year</span>
+            </div>
+            <span class="songlistplay">
+              <span class="timestamp"
+                >0:00 <i id="9" class="far songItemPlay fa-play-circle"></i
+              ></span>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🎵 About Max Volume Player</h3>
+          <p>
+            Experience music like never before with our mountain-inspired music
+            player. Combining the serenity of nature with the power of
+            exceptional audio quality.
+          </p>
+          <a href="about.html">Learn More About Us</a>
+          <a href="#features">Features & Capabilities</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>📞 Contact Us</h3>
+          <p>📧 Email: contact@maxvolumeplayer.com</p>
+          <p>📱 Phone: +1 (555) 123-4567</p>
+          <p>🌐 Website: www.maxvolumeplayer.com</p>
+          <p>📍 Address: 123 Mountain View, Music Valley, MV 12345</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>⭐ User Reviews</h3>
+          <div class="review-card">
+            <div class="review-author">🎧 Alex M.</div>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            <p>
+              "Amazing sound quality! The mountain theme creates such a peaceful
+              listening experience."
+            </p>
+          </div>
+          <div class="review-card">
+            <div class="review-author">🎵 Sarah K.</div>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            <p>
+              "Love the electronic music collection! The interface is so
+              intuitive and beautiful."
+            </p>
+          </div>
+          <div class="review-card">
+            <div class="review-author">🎶 Mike R.</div>
+            <div class="review-rating">⭐⭐⭐⭐</div>
+            <p>
+              "Great variety of songs and the filtering options make it easy to
+              find exactly what I want to hear."
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>💬 Leave a Review</h3>
+          <form class="review-form" onsubmit="submitReview(event)">
+            <input type="text" placeholder="Your Name" required />
+            <select required>
+              <option value="">Rate this player</option>
+              <option value="5">⭐⭐⭐⭐⭐ (5 stars)</option>
+              <option value="4">⭐⭐⭐⭐ (4 stars)</option>
+              <option value="3">⭐⭐⭐ (3 stars)</option>
+              <option value="2">⭐⭐ (2 stars)</option>
+              <option value="1">⭐ (1 star)</option>
+            </select>
+            <textarea
+              placeholder="Write your review..."
+              rows="4"
+              required
+            ></textarea>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/26504e4a1f.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
